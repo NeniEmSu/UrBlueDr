@@ -1,14 +1,14 @@
 import { Feed } from 'feed'
 import { serverQueryContent } from '#content/server'
 
-const basePath = 'https://nurriyad.com'
+const basePath = 'https://bluniverse.vercel.app'
 
 export default defineEventHandler(async (event) => {
   setHeader(event, 'content-type', 'text/xml')
   const docs = await serverQueryContent(event).sort({ date: -1 }).find()
   const feed = new Feed({
-    title: "UrBlueDr's personal blog site",
-    description: "UrBlueDr's personal blog site",
+    title: "Bluniverse's personal blog site",
+    description: "Bluniverse's personal blog site",
     id: basePath,
     link: basePath,
     language: 'en',
@@ -16,7 +16,7 @@ export default defineEventHandler(async (event) => {
     copyright: 'MIT',
     author: {
       name: 'Puamus Oki Babas',
-      email: 'info@UrBlueDr.com',
+      email: 'info@bluniverse.com',
       link: basePath,
     },
   })
